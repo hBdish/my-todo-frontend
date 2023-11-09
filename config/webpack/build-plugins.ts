@@ -1,9 +1,9 @@
-import webpack from 'webpack';
-import {BuildOptions} from "./types/config";
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
+import webpack from 'webpack'
+import { BuildOptions } from './types/config'
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 
 export function buildPlugins(options: BuildOptions): webpack.WebpackPluginInstance[] {
   const isProd = !options.isDev
@@ -23,21 +23,21 @@ export function buildPlugins(options: BuildOptions): webpack.WebpackPluginInstan
         mode: 'write-references',
       },
     }),
-  ];
+  ]
 
   if (!isProd) {
-    plugins.push(new ReactRefreshWebpackPlugin());
-    plugins.push(new webpack.HotModuleReplacementPlugin());
+    plugins.push(new ReactRefreshWebpackPlugin())
+    plugins.push(new webpack.HotModuleReplacementPlugin())
   }
 
   if (isProd) {
-    plugins.push(new MiniCssExtractPlugin({
-      filename: 'css/[name].[contenthash:8].css',
-      chunkFilename: 'css/[name].[contenthash:8].css',
-    }));
+    plugins.push(
+      new MiniCssExtractPlugin({
+        filename: 'css/[name].[contenthash:8].css',
+        chunkFilename: 'css/[name].[contenthash:8].css',
+      }),
+    )
   }
 
   return plugins
 }
-
-

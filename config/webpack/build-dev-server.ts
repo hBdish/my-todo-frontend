@@ -1,5 +1,5 @@
-import type { Configuration as DevServerConfiguration } from 'webpack-dev-server';
-import {BuildOptions} from "./types/config";
+import type { Configuration as DevServerConfiguration } from 'webpack-dev-server'
+import { BuildOptions } from './types/config'
 
 export function buildDevServer(options: BuildOptions): DevServerConfiguration {
   const devServer: DevServerConfiguration = {
@@ -11,9 +11,9 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
     client: {
       overlay: {
         errors: true,
-        warnings: true
+        warnings: true,
       },
-      progress: true
+      progress: true,
     },
     port: options.port,
     devMiddleware: {
@@ -21,8 +21,8 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
     },
     static: [
       {
-        directory: options.paths.static
-      }
+        directory: options.paths.static,
+      },
     ],
   }
 
