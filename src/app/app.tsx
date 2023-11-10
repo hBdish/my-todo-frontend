@@ -1,4 +1,4 @@
-import { useTheme } from '@/shared'
+import { Button, useTheme } from '@/shared'
 import { AppRouter } from './providers/router'
 
 const App = () => {
@@ -6,7 +6,7 @@ const App = () => {
   return (
     <div className={'app'}>
       <AppRouter />
-      <button onClick={() => toggleTheme()}>click</button>
+      <Button onClick={() => toggleTheme()}>click</Button>
     </div>
   )
 }
